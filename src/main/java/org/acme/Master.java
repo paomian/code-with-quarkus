@@ -11,6 +11,15 @@ public class Master {
   Long id;
   @OneToOne(fetch = FetchType.LAZY,mappedBy = "master",cascade=CascadeType.ALL)
   Slave slave;
+  
+  @Enumerated
+  @Column(name = "credential_type")
+  private CredentialType credentialType;
+  
+  public enum CredentialType {
+    USERNAME,
+    APP_KEY,
+  }
 
   public Long getId() {
     return id;
